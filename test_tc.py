@@ -52,16 +52,7 @@ class Test(TestCase):
         expected_result = [(1, 2), (2, 2), (3, 2), (4, 1)]
         self.assertEqual(expected_result, result)
 
-    def test_duplicate_remover(self):
-        """This function tests whether the duplicate_remover outputs a valid list of x-y cordinates.
 
-                                      """
-        test_input = [(1, 2), (2, 2), (3, 2), (4, 1)]
-        test_input2 = {1: {1, 2}, 2: {1, 2}, 3: {1, 3}, 4: {4}}
-        result = tc.duplicate_remover(test_input, test_input2)
-        expected_result = [[0, 0], [1, 2], [2, 3], [3, 4]]
-        print(expected_result)
-        self.assertEqual(expected_result, result)
 
     def test_plot(self):
         """This function tests whether the plot actually plots the input coordinates.
