@@ -61,3 +61,10 @@ class Test(TestCase):
         test_input2 = {1: {1, 2}, 2: {1, 2}, 3: {1, 3}, 4: {4}}
         test_input3 = [1, 2, 3, 4]
         tc.plot(test_input, test_input2, test_input3)
+
+    def test_dominator_calculation_returns_empty_set_from_empty_kill_map(self):
+        self.assertEqual(tc.calculate_dominating_mutants({}), {})
+
+    def test_dominator_calculation_on_simple_graph(self):
+        kill_map = {1: {1, 2, 4}, 2: {1, 3}, 3: {4}, 4: {2, 4}, 5: {1, 3, 4}}
+        self.assertEqual(tc.calculate_dominating_mutants(kill_map), {2, 3})

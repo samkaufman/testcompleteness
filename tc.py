@@ -1,4 +1,6 @@
 import csv
+from typing import Mapping, Set
+
 import pandas as pd
 import matplotlib.pyplot as plt
 
@@ -139,6 +141,21 @@ def dominator_export(sorted_weight_non_duplicate):
         wr.writerow(['Mutant No', 'Number of tests'])
         for x, y in sorted_weight_non_duplicate:
             wr.writerow([x, y])
+
+
+def calculate_dominating_mutants(kill_map: Mapping[int, Set[int]]) -> Set[int]:
+    """Calculates a dominating set of mutants.
+
+    Parameters:
+        kill_map: A mapping from test identifiers to a set of identifiers for
+            mutants killed.
+
+    Returns:
+        The set of identifiers of mutants in a dominating set.
+    """
+    # TODO(ardier): Extend this docstring with details about how it resolves
+    #  indistinguishable mutants.
+    raise NotImplementedError()
 
 
 def plot(completeness, sorted_weight_non_duplicate, mutants_explored):
